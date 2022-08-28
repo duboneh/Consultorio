@@ -1,28 +1,28 @@
 
 /* 
-Cores do IFPR 
+Cores do Dentistry 
 */
-.bg-ifpr {
+.bg-dentistry {
     background-color: #0ba4ab;
 }
 
-.text-ifpr {
-    color: #007834;
+.text-dentistry {
+    color: #0ba4ab;
 }
 
-.border-ifpr {
-    border-color: #007834;
+.border-dentistry {
+    border-color: #0ba4ab;
 }
-.bg-ifpr-escuro {
-    background-color: #315C23;
-}
-
-.text-ifpr-escuro {
-    color: #315C23;
+.bg-dentistry-escuro {
+    background-color: #09838a;
 }
 
-.border-ifpr-escuro {
-    border-color: #315C23;
+.text-dentistry-escuro {
+    color: #09838a;
+}
+
+.border-dentistry-escuro {
+    border-color: #09838a;
 }
 
 
