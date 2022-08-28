@@ -1,0 +1,27 @@
+{% extends 'paginas/modelo-agendamento.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+<h3>Excluir Cadastro Paciente</h3>
+<p class="lead">
+    Somente clique em excluir caso deseje apagar permanentemente o cadastro do paciente.
+</p>
+
+<hr>
+
+<form action="" method="POST">
+
+    <p>Deseja excluir o paciente: <strong>{{ object }}</strong>?
+
+    </p>
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="{% url 'listar-pacientes' %}" class="btn btn-primary float-right">Voltar</a>
+</form> 
+
+{% endblock %}
