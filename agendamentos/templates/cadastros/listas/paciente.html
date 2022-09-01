@@ -13,45 +13,91 @@
 <hr>
 
 <div class="table-resposive">
-    <table class="table table-striped">
-        <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>E-mail</th>
-            <th>Data Nascimento</th>
-            <th>Celular</th>
-            <th>Criado/Atualizado</th>
-            <th>Opções</th>
-        </tr>
-        
-        {% for paciente in object_list %}
-        
-        <tr>
-            <td>{{ paciente.pk }}</td>
-            <td>{{ paciente.nome }}</td>
-            <td>{{ paciente.cpf }}</td>
-            <td>{{ paciente.email }}</td>
-            <td>{{ paciente.data_nascimento }}</td>
-            <td>{{ paciente.celular }}</td>
-            <td>{{ paciente.atualizado_em }}</td>
-            <td>
-                <a href="{% url 'editar-paciente' paciente.pk %}" class="btn btn-warning btn-sm" title="Editar">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
-                <a href="{% url 'excluir-paciente' paciente.pk %}" class="btn btn-danger btn-sm" title="Excluir">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="5">Nenhum paciente cadastrado.</td>
-        </tr>
+    <table class="table table-striped" id="tabela-listar-pacientes">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data Nascimento</th>
+                <th>E-mail</th>
+                <th>Celular</th>
+                <th>Criado/Atualizado</th>
+                <th>Opções</th>
+            </tr>    
+        </thead>
 
-        {% endfor %}
-    
+        <tbody>
+
+            {% for paciente in object_list %}
+            
+            <tr>
+                <td>{{ paciente.pk }}</td>
+                <td>{{ paciente.nome }}</td>
+                <td>{{ paciente.cpf }}</td>
+                <td>{{ paciente.data_nascimento }}</td>
+                <td>{{ paciente.email }}</td>
+                <td>{{ paciente.celular }}</td>
+                <td>{{ paciente.atualizado_em }}</td>
+                <td>
+                    <a href="{% url 'editar-paciente' paciente.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'excluir-paciente' paciente.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum paciente cadastrado.</td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+            
     </table>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+    $(document).ready(function () {
+
+        $("#tabela-listar-pacientes").DataTable({
+            responsive: true,
+            // "bSort": false,
+            "aaSorting": [],
+            "pageLength": 50,
+            "language": {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "A carregar dados...",
+                "processing": "A processar...",
+                "search": "Buscar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": ordem crescente",
+                    "sortDescending": ": ordem decrescente"
+                }
+            }
+        });
+
+    });
+
+</script>
 {% endblock %}

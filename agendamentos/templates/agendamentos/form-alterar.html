@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
-<h3>Alterar Agendamento</h3>
+<h3>Editar Agendamento</h3>
 <p class="lead">
     Preencha os campos que deseja alterar:
 </p>
@@ -22,5 +22,19 @@
     <a href="{% url 'listar-agendamentos' %}" class="btn btn-primary mt-4 float-right">Voltar</a>
 
 </form>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<!-- Mascaras do JQuery -->
+<script>
+    $(document).ready(function () {
+
+        $("#id_data_consulta").mask("00/00/0000");
+
+    });
+</script>
 
 {% endblock %}

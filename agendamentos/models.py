@@ -7,7 +7,7 @@ class Paciente(models.Model):
     cpf = models.CharField('CPF ', max_length=14, help_text="Digite somente os números.")
     email = models.CharField('E-mail', max_length=250, null=True, blank=True)
     data_nascimento = models.DateField('Data de Nascimento', help_text="DD/MM/AAAA")
-    celular = models.CharField('Núm. celular', max_length=250)
+    celular = models.CharField('Núm. celular', max_length=250, help_text="Digite somente os números.")
     atualizado_em = models.DateTimeField('Atualizado em', auto_now=True)
 
     def __str__(self):
