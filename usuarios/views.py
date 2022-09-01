@@ -2,6 +2,8 @@ from audioop import reverse
 from multiprocessing import context
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import PasswordChangeForm
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
@@ -53,3 +55,10 @@ class PerfilUpdate(UpdateView):
         context['titulo'] = "Meus dados"
 
         return context
+
+#Classe para Mudança da senha
+
+class PasswordUpdate(PasswordChangeView):
+    template_name = "usuarios/alterar-senha.html"
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('index')

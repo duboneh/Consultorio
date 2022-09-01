@@ -10,7 +10,7 @@
     <meta name="author" content="Victor Rizzo">
 
     {% block titulo %}
-    <title>:: Clínica Dentistry ::</title>
+    <title>:: Clínica DentisTry ::</title>
     {% endblock %}
 
     <!-- Ícone do favicon -->
@@ -149,7 +149,7 @@
                                 <a class="dropdown-item" href="{% url 'atualizar-perfil' %}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     Meus dados</a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{% url 'atualizar-senha' %}">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                     Alterar senha</a>
                                 <div class="dropdown-divider"></div>
@@ -220,7 +220,7 @@
                 <div class="col-md-4 mx-auto text-center">
                     <img src="{% static 'img/1.png' %}" height="80" class="float-left" alt="">
                     <p>
-                        <span class="lead">Clínica Dentistry</span><br>
+                        <span class="lead">Clínica DentisTry</span><br>
                         <span class="small text-monospace">Desenvolvido por Victor Rizzo</span>
                     </p>
                 </div>
