@@ -59,6 +59,20 @@ class AgendamentoUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'agendamentos/form-alterar.html'
     success_url = reverse_lazy('listar-agendamentos')
 
+class PacienteArquivoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    model = Paciente
+    fields = ['arquivo']
+    template_name = 'cadastros/form-arquivo.html'
+    success_url = reverse_lazy('listar-pacientes')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Adicionar Arquivo para o Paciente:"
+
+        return context
+
 #DeleteView#
 class PacienteDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')

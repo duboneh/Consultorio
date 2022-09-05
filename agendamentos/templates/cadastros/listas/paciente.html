@@ -23,6 +23,7 @@
                 <th>E-mail</th>
                 <th>Celular</th>
                 <th>Criado/Atualizado</th>
+                <th>Arquivos</th>
                 <th>Opções</th>
             </tr>    
         </thead>
@@ -39,6 +40,13 @@
                 <td>{{ paciente.email }}</td>
                 <td>{{ paciente.celular }}</td>
                 <td>{{ paciente.atualizado_em }}</td>
+                <td>
+                    <div class="text-center">
+                        <a href="{% url 'arquivos-paciente' paciente.pk %}" class="btn btn-primary btn-sm" title="Arquivo">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </td>
                 <td>
                     <a href="{% url 'editar-paciente' paciente.pk %}" class="btn btn-warning btn-sm" title="Editar">
                         <i class="fa fa-pencil" aria-hidden="true"></i>

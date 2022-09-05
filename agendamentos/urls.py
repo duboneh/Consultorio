@@ -2,7 +2,7 @@ from django.urls import path
 
 #Importar views criadas
 from .views import PacienteCreate, AgendamentoCreate
-from .views import PacienteUpdate, AgendamentoUpdate
+from .views import PacienteUpdate, AgendamentoUpdate, PacienteArquivoUpdate
 from .views import PacienteDelete, AgendamentoDelete
 from .views import PacienteList, AgendamentoList
 
@@ -19,4 +19,6 @@ urlpatterns = [
 
     path('listar/pacientes/', PacienteList.as_view(), name='listar-pacientes'),
     path('listar/agendamentos/', AgendamentoList.as_view(), name='listar-agendamentos'),
+
+    path('arquivo/paciente/<int:pk>', PacienteArquivoUpdate.as_view(), name='arquivos-paciente'),
 ]

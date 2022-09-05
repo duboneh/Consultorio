@@ -1,0 +1,58 @@
+{% extends 'paginas/modelo-agendamento.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+<h3>{{ titulo }}</h3>
+<h2>
+    {{ paciente.nome }}
+</h2>
+
+<hr>
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary mt-4">Salvar</button>
+    <a href="{% url 'listar-pacientes' %}" class="btn btn-primary mt-4 float-right">Voltar</a>
+
+</form>
+
+<!-- <div class="table-resposive">
+    <table class="table table-striped" id="tabela-listar-pacientes">
+        <thead>
+            <tr>
+                <th>Arquivo</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for paciente in object_list %}
+
+            <tr>
+                <td><a href="{{ paciente.arquivo.url }}"></a></td>
+
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum arquivo cadastrado.</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div> -->
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
