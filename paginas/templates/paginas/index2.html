@@ -6,7 +6,7 @@
 <h3>Clínica DentisTry</h3>
 
 {% if user.perfil.nome_completo %}
-Bem vindo ao sistema {{ user.perfil.nome_completo }}!
+Bem-vindo ao sistema {{ user.perfil.nome_completo }}!
 {% else %}
 Seu cadastro está incompleto e precisa atualizar seus dados. Favor acessar a página <a href="{% url 'atualizar-perfil' %}">meus dados</a> para atualizar.
 {% endif %}
